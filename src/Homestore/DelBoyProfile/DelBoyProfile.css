@@ -1,0 +1,135 @@
+.delboy-profile {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.profile-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.profile-form button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile-form button:hover {
+  background: #0056b3;
+}
+
+.msg {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #cc0000;
+  font-weight: 500;
+}
+
+.profile-card {
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f0f8ff;
+}
+
+.profile-card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.profile-card p {
+  margin: 0.3rem 0;
+
+}
+/* Container card */
+.user-profile {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.user-profile h3 {
+  margin-bottom: 18px;
+  font-size: 20px;
+  color: #222;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 8px;
+}
+
+/* Info rows */
+.user-profile p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 15px;
+  color: #444;
+  border-bottom: 1px dashed #eaeaea;
+}
+
+/* Last row no border */
+.user-profile p:last-child {
+  border-bottom: none;
+}
+
+/* Labels */
+.user-profile p b {
+  color: #111;
+  font-weight: 600;
+}
+
+/* Map link */
+.user-profile a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #0a66c2;
+  font-weight: 500;
+}
+
+.user-profile a:hover {
+  text-decoration: underline;
+}
+
+/* Map icon */
+.marker1 {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .user-profile {
+    padding: 16px;
+  }
+
+  .user-profile p {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+

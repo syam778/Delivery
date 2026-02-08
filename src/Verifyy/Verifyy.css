@@ -1,0 +1,90 @@
+/* User data container */
+.data {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border: 2px solid #6a5acd;
+}
+h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Title */
+.data h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #6a5acd;
+  font-size: 1.4rem;
+}
+
+/* Paragraph rows */
+.data p {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Label */
+.data p strong {
+  color: #ff5722;
+}
+
+/* Map link */
+.data a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #4caf50;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.data a:hover {
+  background: #43a047;
+}
+
+/* Marker icon */
+.marker1 {
+  width: 20px;
+  height: 20px;
+}
+
+/* No map text */
+.data p:has(span.no-map),
+.data p:contains("No Map") {
+  color: #999;
+}
+
+.success-msg {
+  color: green;
+  font-weight: bold;
+ 
+  padding: 8px;
+  border-radius: 5px;
+  background-color: darkkhaki;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-msg {
+  color: red;
+ 
+  font-weight: bold;
+  background-color: seashell;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
