@@ -133,7 +133,7 @@ import { DelContext } from "../DelContext/DelContext";
 
 const Verifyy = () => {
   const navigate = useNavigate();
-  const { url } = useContext(DelContext)
+  const { url } = useContext(DelContext);
 
   const [formData, setFormData] = useState({
     email: "",

@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { DelContext } from "../../DelContext/DelContext";
 
 const Add = () => {
   const [deliveryBoys, setDeliveryBoys] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const url = "http://localhost:3000/api"; // your backend base URL
+  //const url = "http://localhost:3000/api"; // your backend base URL
+  const {url} = useContext(DelContext);
 
   // ✅ Fetch delivery boys list
   const fetchDeliveryBoys = async () => {
     try {
-      const res = await axios.get(`${url}/delvery/get`); // adjust your endpoint
+      const res = await axios.get(`${url}/api/delvery/get`); // adjust your endpoint
       if (res.data.success) {
         setDeliveryBoys(res.data.data);
       }
@@ -23,7 +25,7 @@ const Add = () => {
   const toggleStatus = async (id, currentStatus) => {
     try {
       const res = await axios.post(
-        `${url}/delboy/${currentStatus ? "offline" : "online"}`,
+        `${url}/api/delboy/${currentStatus ? "offline" : "online"}`,
         { id }
       );
 

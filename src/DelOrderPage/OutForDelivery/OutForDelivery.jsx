@@ -587,7 +587,7 @@ import axios from "axios";
 import "./OutForDelivery.css";
 import { DelContext } from "../../DelContext/DelContext";
 
-const BASE_URL = "http://localhost:3000/api";
+//const BASE_URL = "http://localhost:3000/api";
 
 const OutForDelivery = () => {
   const { orderId } = useParams(); // Route must be :orderId
@@ -596,7 +596,7 @@ const OutForDelivery = () => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
   const [timer, setTimer] = useState("00:00:00"); // Live timer display
-  const { wonAudio, doneAudio, submitAudio, addAudio, timeAudio, } = useContext(DelContext)
+  const { wonAudio, doneAudio, submitAudio, addAudio, timeAudio,url } = useContext(DelContext);
 
   const timerRef = useRef(null);
 
@@ -621,7 +621,7 @@ const OutForDelivery = () => {
 
     const fetchOrder = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/assignorder/order/${orderId}`);
+        const res = await axios.get(`${url}/api/assignorder/order/${orderId}`);
         if (res.data.success) setOrder(res.data.data);
         else alert("❌ Order not found");
       } catch (err) {
@@ -667,7 +667,7 @@ const OutForDelivery = () => {
     try {
       setLoading(true);
 
-      const res = await axios.post(`${BASE_URL}/assignorder/update-status`, {
+      const res = await axios.post(`${url}/api/assignorder/update-status`, {
         orderId: order._id,
         status: "Delivered",
       });

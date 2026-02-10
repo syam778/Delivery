@@ -448,10 +448,12 @@ import "./DelOrder.css"; // Your existing CSS
 import { useContext } from "react";
 import { DelContext } from "../../DelContext/DelContext";
 
-const BASE_URL = "http://localhost:3000/api";
+
+//const BASE_URL = "http://localhost:3000/api";
 
 const DelOrder = () => {
   const [form, setForm] = useState({ gmail: "", userSpecialId: "" });
+
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -466,7 +468,7 @@ const DelOrder = () => {
 
   const lastPopupOrderId = useRef(null);
   const orderAudio = useRef(new Audio("/Audios/order.mp3"));
-  const { wonAudio, doneAudio, submitAudio, addAudio, timeAudio, } = useContext(DelContext);
+  const { wonAudio, doneAudio, submitAudio, addAudio, timeAudio, url} = useContext(DelContext);
 
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -491,7 +493,7 @@ const DelOrder = () => {
     setMessage("");
 
     try {
-      const res = await axios.post(`${BASE_URL}/delboy/get-single`, form);
+      const res = await axios.post(`${url}/api/delboy/get-single`, form);
       if (res.data.success) {
         setUser(res.data.data);
         setMessage("✅ Delivery boy verified");
@@ -518,7 +520,7 @@ const DelOrder = () => {
         setOnline(true);
         setOnlineStartTime(Date.now());
         submitAudio.play()
-        await axios.post(`${BASE_URL}/delboy/online`, { id: user._id });
+        await axios.post(`${url}/api/delboy/online`, { id: user._id });
       } else {
         setOnline(false);
         if (onlineStartTime) {
@@ -529,7 +531,7 @@ const DelOrder = () => {
         setCurrentOrder(null);
         setNewOrderPopup(null);
         lastPopupOrderId.current = null;
-        await axios.post(`${BASE_URL}/delboy/offline`, { id: user._id });
+        await axios.post(`${url}/api/delboy/offline`, { id: user._id });
       }
     } catch (err) {
       console.error("ONLINE/OFFLINE ERROR 👉", err);
@@ -544,7 +546,7 @@ const DelOrder = () => {
     const fetchOrders = async () => {
       try {
         const res = await axios.get(
-          `${BASE_URL}/assignorder/my-orders/${user._id}`
+          `${url}/api/assignorder/my-orders/${user._id}`
         );
         if (!res.data.success) return;
 
@@ -586,7 +588,7 @@ const DelOrder = () => {
   const receiveOrder = async (orderId) => {
     try {
       orderAudio.current.pause();
-      const res = await axios.post(`${BASE_URL}/assignorder/update-status`, {
+      const res = await axios.post(`${url}/api/assignorder/update-status`, {
         orderId,
         status: "pickup",
       });
@@ -607,7 +609,7 @@ const DelOrder = () => {
   const cancelOrder = async (orderId) => {
     try {
       orderAudio.current.pause();
-      const res = await axios.post(`${BASE_URL}/assignorder/cancel`, {
+      const res = await axios.post(`${url}/api/assignorder/cancel`, {
         orderId,
       });
       if (res.data.success) {
@@ -644,7 +646,7 @@ const DelOrder = () => {
   const fetchOrderHistory = async (userSpecialId) => {
     try {
       const res = await axios.get(
-        `${BASE_URL}/assignorder/history/${userSpecialId}`
+        `${url}/api/assignorder/history/${userSpecialId}`
       );
       if (res.data.success) setOrderHistory(res.data.data);
     } catch (err) {
@@ -780,7 +782,7 @@ const DelOrder = () => {
 
           {currentOrder.items?.map((item, i) => (
             <div key={i} className="popupm">
-              
+
               {item?.phone && (
                 <a href={`tel:${item.phone}`} className="call-btn">
                   📞 Call Customer
@@ -838,7 +840,7 @@ const DelOrder = () => {
             onClick={async () => {
               try {
                 const res = await axios.post(
-                  `${BASE_URL}/assignorder/update-status`,
+                  `${url}/api/assignorder/update-status`,
                   {
                     orderId: currentOrder._id,
                     status: "out for delivery",

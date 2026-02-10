@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { DelContext } from "../../DelContext/DelContext";
+
 //import "./AllDeliveryBoyTotals.css";
 
-const BASE_URL = "http://localhost:3000/api/order";
+//const BASE_URL = "http://localhost:3000/api/order";
 
 const AllDeliveryBoyTotals = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const {url} =useContext(DelContext);
 
   const fetchTotals = async () => {
     setLoading(true);
     setMessage("");
 
     try {
-      const res = await axios.get(`${BASE_URL}/all-deliveryboy-totals`);
+      const res = await axios.get(`${url}/api/order/all-deliveryboy-totals`);
 
       if (res.data.success) {
         setList(res.data.data || []);

@@ -158,14 +158,18 @@ export default DelOrderHistory;
 */
 
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"; //try
 import axios from "axios";
 import "./DelOrderHistory.css";
+import { DelContext } from "../../DelContext/DelContext";
 
-const BASE_URL = "http://localhost:3000/api"; // Update with your backend URL
+
+//const BASE_URL = "https://back-q3wv.onrender.com/api"; // Update with your backend URL
 
 const DelOrderHistory = () => {
+  const {url} = useContext(DelContext);
+
   const { delBoyId } = useParams();
   const navigate = useNavigate();
 
@@ -182,7 +186,7 @@ const DelOrderHistory = () => {
   // 🔹 Fetch delivery boy order history
   const fetchHistory = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/assignorder/history/${delBoyId}`);
+      const res = await axios.get(`${url}/api/assignorder/history/${delBoyId}`);
       if (res.data.success) {
         // Map timestamps to Date objects
         const mappedOrders = res.data.data.map((order) => {
@@ -214,7 +218,7 @@ const DelOrderHistory = () => {
   const removeHistory = async (assignedOrderId) => {
     if (!window.confirm("Remove this order from history?")) return;
     try {
-      const res = await axios.delete(`${BASE_URL}/assignorder/history/remove/${assignedOrderId}`);
+      const res = await axios.delete(`${url}/api/assignorder/history/remove/${assignedOrderId}`);
       if (res.data.success) {
         setOrders((prev) => prev.filter((o) => o._id !== assignedOrderId));
       }

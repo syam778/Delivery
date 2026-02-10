@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import "./UserProfile.css";
+import { DelContext } from "../DelContext/DelContext";
 
-const BASE_URL = "http://localhost:3000/api/input";
+//const BASE_URL = "http://localhost:3000/api/input";  //"https://back-q3wv.onrender.com
+//const BASE_URL = "https://back-q3wv.onrender.com/api/input";
+
 
 const UserProfile = () => {
+  const {url} = useContext(DelContext)
   const [form, setForm] = useState({ email: "", phone: "" });
   const [profile, setProfile] = useState(null);
   const [message, setMessage] = useState("");
@@ -24,7 +28,7 @@ const UserProfile = () => {
     }
 
     try {
-      const res = await axios.post(`${BASE_URL}/userprofile`, form);
+      const res = await axios.post(`${url}/api/input/userprofile`, form);
       if (res.data.success) {
         setProfile(res.data.data);
         setMessage(res.data.message);

@@ -77,14 +77,18 @@ export default DelBoyProfile;*/
 
 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import "./DelBoyProfile.css"
 import { input } from "../../assets/output";
+import { DelContext } from "../../DelContext/DelContext";
 
-const BASE_URL = "http://localhost:3000/api/input";
+
+//const BASE_URL = "http://localhost:3000/api/input";
+
 
 const DelBoyProfile = () => {
+  const {url} = useContext(DelContext);
   const [form, setForm] = useState({
     email: "",
     phone: "",
@@ -106,7 +110,7 @@ const DelBoyProfile = () => {
 
     try {
       const res = await axios.post(
-        `${BASE_URL}/createdelprofileuser`,
+        `${url}/api/input/createdelprofileuser`,
         form
       );
 
