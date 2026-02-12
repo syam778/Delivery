@@ -52,9 +52,12 @@ const Navbar = ({ setShowLogin }) => {
                   <img src={input.admin} alt="" />
                   <p>All Order Data</p>
                 </li>
+                <li onClick={() => navigate("/delivery/history/:delBoyId")} >
+                  <img src={input.admin} alt="" />
+                  <p>All Order History</p>
+                </li>
 
                 <hr className='more' />
-
               </ul>
             </div>
           )}
