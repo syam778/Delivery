@@ -1,4 +1,4 @@
-.del-container {
+/*.del-container {
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
@@ -75,3 +75,191 @@
   background: #b71c1c;
 }
 
+*/
+.del-history-page {
+  padding: 20px;
+  background: #f6f8ff;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.del-history-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.del-history-top h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #222;
+}
+
+.back-btn {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  opacity: 0.9;
+}
+
+/* Summary */
+.summary-box {
+  background: white;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.summary-box p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Loading / empty */
+.loading,
+.empty {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+/* Grid */
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 18px;
+}
+
+/* Card */
+.history-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease-in-out;
+}
+
+.history-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Card header */
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-head h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #111;
+}
+
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #eaf1ff;
+  color: #2f80ed;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Info */
+.info p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.info hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}
+
+.time {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Items */
+.items h5 {
+  margin: 12px 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.items ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.items li {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #333;
+}
+
+/* Map button */
+.mapbtnps {
+  margin-left: 10px;
+  padding: 4px 8px;
+  background: #2f80ed;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mapbtnps:hover {
+  opacity: 0.9;
+}
+
+/* Remove button */
+.remove-history-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #ff4d4d;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.remove-history-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .del-history-top h2 {
+    font-size: 18px;
+  }
+}

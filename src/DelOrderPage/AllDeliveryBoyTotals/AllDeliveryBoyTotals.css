@@ -1,0 +1,99 @@
+.all-totals-container {
+  padding: 25px;
+  background: #f8f9fc;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.all-totals-container h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+/* Loading + message */
+.all-totals-container p {
+  text-align: center;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+.msg {
+  background: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 10px auto;
+  border: 1px solid #ffeeba;
+}
+
+/* Table */
+.totals-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Head */
+.totals-table thead {
+  background: #2f80ed;
+  color: white;
+}
+
+.totals-table th {
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Table Body */
+.totals-table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+/* Row hover effect */
+.totals-table tbody tr:hover {
+  background: #f1f6ff;
+  transition: 0.2s ease-in-out;
+}
+
+/* Last row remove border */
+.totals-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .totals-table th,
+  .totals-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .all-totals-container h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .all-totals-container {
+    padding: 15px;
+  }
+
+  .totals-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

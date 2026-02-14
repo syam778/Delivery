@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { DelContext } from "../../DelContext/DelContext";
 
-//import "./AllDeliveryBoyTotals.css";
+
+import "./AllDeliveryBoyTotals.css";
 
 //const BASE_URL = "http://localhost:3000/api/order";
 
@@ -49,7 +50,7 @@ const AllDeliveryBoyTotals = () => {
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th>UserSpecialId</th>
+            
             <th>Total Orders</th>
             <th>Delivered</th>
             <th>Pending</th>
@@ -60,7 +61,7 @@ const AllDeliveryBoyTotals = () => {
             <tr key={boy._id}>
               <td>{index + 1}</td>
               <td>{boy.name}</td>
-              <td>{boy.userSpecialId}</td>
+              
               <td>{boy.totalOrders}</td>
               <td style={{ color: "green" }}>{boy.deliveredCount}</td>
               <td style={{ color: "orange" }}>{boy.pendingCount}</td>
