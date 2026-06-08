@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { DelContext } from "../../DelContext/DelContext";
 
 
-
-
-
-
 const UserOrderPage = () => {
   const [form, setForm] = useState({ email: "", phone: "" });
   const [profile, setProfile] = useState(null);
@@ -20,30 +16,6 @@ const UserOrderPage = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  /*const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
-    setProfile(null);
-
-    if (!form.email || !form.phone) {
-      setMessage("Email and phone are required");
-      return;
-    }
-
-    try {
-      const res = await axios.post(`${BASE_URL}/createdelprofileuser`, form);
-      if (res.data.success) {
-        setProfile(res.data.data);
-        setMessage(res.data.message);
-      } else {
-        setMessage(res.data.message);
-      }
-    } catch (err) {
-      console.error(err);
-      setMessage("Server error ❌");
-    }
-  };
-*/
 const handleSubmit = async (e) => {
   e.preventDefault();
   setMessage("");

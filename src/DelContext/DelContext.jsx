@@ -15,8 +15,8 @@ const DelContextProvider = ({ children }) => {
 
 
 
-  //const url = "http://localhost:3000"; // change to your live backend if needed
-  const url = "https://backend2-5-2t0w.onrender.com" //last
+  const url = "http://localhost:3000"; // change to your live backend if needed
+  //const url = "https://backend2-5-2t0w.onrender.com" //last
 
 
   // Audio
