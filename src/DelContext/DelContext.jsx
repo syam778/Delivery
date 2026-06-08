@@ -11,13 +11,11 @@ const DelContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
 
-  //const url ="https://backend2-3-vwf9.onrender.com"
+  const url = "https://syama-mniy.onrender.com";
 
 
-
-  const url = "http://localhost:3000"; // change to your live backend if needed
-  //const url = "https://backend2-5-2t0w.onrender.com" //last
-
+  //const url = "http://localhost:3000"; // change to your live backend if needed
+  
 
   // Audio
   const wonAudio = new Audio('/Audios/done.mp3');
